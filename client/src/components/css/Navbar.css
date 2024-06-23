@@ -1,0 +1,16 @@
+.navbar-brand{
+    color: orangered !important;
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
+}
+
+.post-comp{
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-icon{
+    display: flex;
+    align-items: center;
+}

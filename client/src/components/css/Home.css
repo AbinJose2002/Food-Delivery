@@ -1,0 +1,31 @@
+.main-sec{
+    height: 80vh;
+    background: url('../../assets/home-image.jpg');
+    background-size: 100% 100%;
+    /* object-fit: none; */
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em;
+}
+
+.main-head{
+    font-size: 4em;
+}
+
+.main-para{
+    width: 50%;
+}
+
+.btn-menu{
+    border-radius: 20px !important;
+}
+
+.view-menu{
+    color: #000 !important;
+    text-decoration: none !important;
+    padding: 0 2em;
+}
