@@ -1,31 +1,59 @@
-.main-sec{
-    height: 80vh;
-    background: url('../../assets/home-image.jpg');
-    background-size: 100% 100%;
-    /* object-fit: none; */
-    border-radius: 30px;
-    color: #fff;
-    font-weight: 700;
+.main-sec {
+    /* Layout */
+    max-height: auto;
+    min-height:85vh ;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 3em;
+
+    /* Background */
+    background: url("../../assets/home-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Typography */
+    color: #fff;
+    font-weight: 700;
+
+    /* Border radius */
+    border-radius: 30px;
+
+    position: relative;
+    
 }
 
-.main-head{
-    font-size: 4em;
+.main-head1, .btn-menu{
+    animation: fadein 2s;
 }
 
-.main-para{
-    width: 50%;
+@keyframes fadein {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+    
 }
 
-.btn-menu{
-    border-radius: 20px !important;
-}
-
-.view-menu{
+.btn-menu a{
     color: #000 !important;
-    text-decoration: none !important;
-    padding: 0 2em;
+
+}
+
+.btn-menu:hover{
+    transform: scale(1.1);
+}
+
+.btn-menu a:hover{
+    color: #000 !important;
+    text-decoration: none;
+    
+}
+
+.main-head1{
+    font-size: 4em !important;
 }
