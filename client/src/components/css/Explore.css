@@ -1,0 +1,8 @@
+.menu-list{
+    overflow: scroll;
+    text-align: center;
+}
+
+.menu-list::-webkit-scrollbar{
+    display: none;
+}
