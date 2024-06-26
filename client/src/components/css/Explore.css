@@ -1,8 +1,28 @@
 .menu-list{
-    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: scroll;
     text-align: center;
 }
 
 .menu-list::-webkit-scrollbar{
     display: none;
+}
+
+.menu-list-items img{
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.menu-list-items h6{
+    color: #747474;
+    font-size: 1.2em;
+
+}
+
+.active1{
+    border: 4px solid tomato;
+    padding: 4px;
 }
