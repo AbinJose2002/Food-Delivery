@@ -1,0 +1,16 @@
+.footer{
+    margin-top: 2em;
+    background-color: rgba(0, 0, 0, 0.723);
+    height: auto;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.footer-head{
+    color: tomato;
+    
+}
+
+.footer-para{
+    color: white;
+}
