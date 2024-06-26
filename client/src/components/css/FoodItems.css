@@ -45,3 +45,11 @@
     border: 1px solid black;
     background-color: #000;
 }
+
+.food-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 12px;
+    background-color: #fff;
+    border-radius: 30px;
+}

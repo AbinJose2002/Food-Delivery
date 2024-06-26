@@ -12,7 +12,7 @@ function App() {
       <Navbar/>
       <Home/>
       <Explore category={category} setCategory={setCategory}/>
-      <FoodDisplay categor={category}/>
+      <FoodDisplay category={category}/>
     </>
   )
 }
