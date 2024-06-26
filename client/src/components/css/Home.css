@@ -62,3 +62,12 @@
 .main-head1{
     font-size: 4em !important;
 }
+
+.cart-icon{
+    color: black;
+}
+
+.cart-icon:hover{
+    color: black;
+    transform: scale(1.1);
+}
