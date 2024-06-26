@@ -29,6 +29,10 @@
     animation: fadein 2s;
 }
 
+.btn-menu{
+    border-radius: 30px !important;
+}
+
 @keyframes fadein {
     0%{
         opacity: 0%;
@@ -46,6 +50,7 @@
 
 .btn-menu:hover{
     transform: scale(1.1);
+    
 }
 
 .btn-menu a:hover{

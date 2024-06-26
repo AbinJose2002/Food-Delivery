@@ -4,7 +4,7 @@ import {menu_list} from '../assets/frontendAssets/assets'
 
 export default function Explore({category,setCategory}) {
   return (
-    <div className='container py-5'>
+    <div className='container py-5' id='menu'>
         <h2 className="explore-head py-5">Explore</h2>
         <div className="menu-list d-flex">
           {

@@ -14,3 +14,17 @@
 .footer-para{
     color: white;
 }
+
+.footer-bottom{
+    padding: 1em;
+    background-color: black;
+    color: white;
+}
+
+.footer-bottom-list{
+    list-style: none;
+}
+
+.footer-bottom-list a{
+    color: white
+}

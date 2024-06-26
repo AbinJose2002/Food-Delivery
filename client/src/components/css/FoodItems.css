@@ -18,7 +18,7 @@
     border-radius: 30px;
     border: 1px solid black;
     padding: 10px;
-    box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.338);;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.338);;
 }
 
 .food-item-info .price{
