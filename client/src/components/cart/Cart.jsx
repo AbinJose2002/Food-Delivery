@@ -1,9 +1,12 @@
 import React from 'react'
+import Navbar from '../Navbar'
+import CartBody from './CartBody'
 
 const Cart = () => {
   return (
-    <div>a
-      
+    <div>
+      <Navbar/>
+      <CartBody/>
     </div>
   )
 }

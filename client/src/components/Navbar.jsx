@@ -19,7 +19,7 @@ export default function Navbar({ setShowLogin, showLogin }) {
               <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#menu">Menu</Link>
+              <Link className="nav-link" to="/#menu">Menu</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="#contact">Contact Us</Link>
