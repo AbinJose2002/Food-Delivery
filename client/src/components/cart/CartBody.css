@@ -3,8 +3,8 @@
     list-style: none;
     width: 100%;
     justify-content: space-between;
-    overflow: scroll;
-    margin: 0 0 0 -3em
+    /* overflow: scroll; */
+    /* margin: 0 0 0 -3em */
 }
 
 .item-header-list::-webkit-scrollbar{
@@ -21,6 +21,7 @@
 
 .item-header-container{
     padding: 3em 0;
+    overflow: scroll;
 }
 
 .item-header-list-elements img{
@@ -31,4 +32,38 @@
 
 .item-header-container{
     overflow: scroll;
+}
+
+.item-header-container::-webkit-scrollbar{
+    display: none;
+}
+
+.item-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.food-item-counter-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cross{
+    cursor: pointer;
+}
+
+.promo-form{
+    display: flex;
+}
+
+.btn-promo, .btn-checkout{
+    background-color: tomato;
+    color: #fff;
 }

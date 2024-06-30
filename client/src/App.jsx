@@ -7,6 +7,7 @@ import FoodDisplay from "./components/FoodDisplay";
 import Footer from "./components/Footer";
 import Cart from './components/cart/Cart';
 import Login from './components/Login/Login';
+import PlaceOrder from './components/placeorder/PlaceOrder'
 import './App.css';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/placeorder" element={<PlaceOrder />} />
       </Routes>
     </Router>
   );

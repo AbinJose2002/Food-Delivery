@@ -4,33 +4,49 @@ import { food_list } from "../assets/frontendAssets/assets";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-    const [cartItems, setcartItem] = useState({});
+    const [cartItems, setCartItems] = useState({});
 
     // Add item to the cart
     const addItem = (itemId) => {
-        if (!cartItems[itemId]) {
-            setcartItem((prev) => ({ ...prev, [itemId]: 1 }));
-        } else {
-            setcartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-        }
+        setCartItems((prev) => ({
+            ...prev,
+            [itemId]: (prev[itemId] || 0) + 1,
+        }));
+        getTotalCartAmount()
     };
 
     // Remove item from the cart
     const removeItem = (itemId) => {
-        if (cartItems[itemId] > 0) { // Ensure the item count doesn't go below 0
-            setcartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-        }
+        setCartItems((prev) => {
+            if (prev[itemId] > 1) {
+                return { ...prev, [itemId]: prev[itemId] - 1 };
+            } else {
+                const newCartItems = { ...prev };
+                delete newCartItems[itemId];
+                return newCartItems;
+            }
+        });
     };
 
-    // Example useEffect for debugging purposes
-    useEffect(() => {
-    }, [cartItems]);
+    // Calculate the total price
+    let totalAmount 
+    const getTotalCartAmount = () => {
+        totalAmount=0
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = food_list.find((product) => product._id === item)
+                totalAmount += itemInfo.price * cartItems[item]
+            }
+        }
+        return totalAmount
+    }
 
     // Context value to provide to consumers
     const contextValue = {
+        getTotalCartAmount,
         food_list,
         cartItems,
-        setcartItem,
+        setCartItems,
         addItem,
         removeItem,
     };
