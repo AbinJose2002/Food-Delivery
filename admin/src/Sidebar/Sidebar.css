@@ -1,0 +1,20 @@
+@media screen and (max-width:767px) {
+    p{
+        display: none;
+    }
+    
+}
+
+.sidebar-option:hover{
+    background-color: rgb(249, 244, 236);
+    border-radius: 20px;
+}
+
+.sidebar-option{
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar-option-para{
+    margin: auto 0;
+}

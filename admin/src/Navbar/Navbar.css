@@ -1,0 +1,14 @@
+.navbar-head{
+    color: tomato;
+    font-weight: 700;
+}
+
+.navbar-para{
+    font-weight: 500;
+}
+
+.profile-img{
+
+    height: 60%;
+    width: auto;
+}

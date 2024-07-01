@@ -1,0 +1,23 @@
+.upload-img-area{
+    cursor: pointer;
+}
+
+.add-name, .add-desc, .add-category, .add-price{
+    width: 50%;
+}
+
+.btn-tomato{
+    color: white;
+    background-color: tomato;
+}
+
+.btn-tomato:hover{
+    color: tomato;
+    border: 1px solid tomato;
+}
+
+@media screen and (max-width: 767px) {
+    .add-name, .add-desc, .add-category, .add-price{
+        width: 100%;
+    }
+}
