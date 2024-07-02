@@ -3,8 +3,11 @@ import { useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Add = () => {
+  let url = 'http://localhost:8080'
   const [image, setimage] = useState(false)
   const [data, setdata] = useState({
     name: '',
@@ -28,7 +31,23 @@ const Add = () => {
     formData.append('price',Number(data.price))
     formData.append('category',data.category)
     formData.append('image',image)
-    const response = await axios.post('/api/food/add',formData,()=>{})
+    const response = await axios.post(`${url}/api/food/add`,formData)
+    try{
+      if(response.data.success){
+        setdata({
+          name: '',
+          description: '',
+          price: '',
+          category: 'Salad'
+        })
+        setimage(false)
+        toast.success(response.data.message)
+      }else{
+        toast.error(response.data.message)
+      }
+    }catch(error){
+      toast.error("Error while upload")
+    }
   }
 
   return (
