@@ -1,0 +1,25 @@
+.admin-food-list{
+    overflow: scroll;
+}
+
+.admin-food-list::-webkit-scrollbar{
+    display: none;
+}
+
+.admin-food-list-head, .admin-food-list-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-food-list-img{
+    width: 100px;
+    height: 100px;
+}
+
+.xyz{
+    padding-left: 3em;
+}
+
+.remove-symbol{
+    cursor: pointer;
+}

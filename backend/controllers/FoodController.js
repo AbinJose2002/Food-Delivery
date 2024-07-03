@@ -31,16 +31,27 @@ const listFood = async (req, res) => {
 
 const deleteFood = async (req, res) => {
     try {
-        console.log(req.body.id)
-        const food = await foodModel.findById(req.body.id)
-        console.log(food)
-        fs.unlink(`uploads/${food.image}`, () => { })
-        await foodModel.findByIdAndDelete(req.body.id)
-        res.json({ success: true, message: 'Food Removed' })
+        const food = await foodModel.findById(req.body.id);
+        if (!food) {
+            return res.json({ success: false, message: 'Food not found' });
+        }
+
+        const filePath = `uploads/${food.image}`;
+        fs.unlink(filePath, (err) => {
+            if (err) {
+                console.error('Error deleting image:', err);
+            } else {
+                console.log('Image deleted successfully');
+            }
+        });
+
+        await foodModel.findByIdAndDelete(req.body.id);
+        res.json({ success: true, message: 'Food Removed' });
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: 'Error in deleting food' })
+        console.error('Error deleting food:', error);
+        res.json({ success: false, message: 'Error in deleting food' });
     }
-}
+};
+
 
 export { addFood, listFood, deleteFood }
