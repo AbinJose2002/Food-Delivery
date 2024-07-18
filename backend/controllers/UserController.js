@@ -4,8 +4,23 @@ import jwt from 'jsonwebtoken'
 import validator from 'validator'
 
 // login function 
-const userLogin = (req,res)=>{
-    res.send("hello world!!!")
+const userLogin = async (req,res)=>{
+    const {email, password} = req.body;
+    try{
+        const user = await userModel.findOne({email:email})
+        if(!user){
+            res.json({success:false, message:"Email not found"})
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch){
+            res.json({success:false, message:"Invalid Password"})
+        }
+        const token = createToken(user._id)
+        res.json({success:true, message:"Login Success"})
+    }catch(error){
+        console.log(error);
+        res.json({success:false, message:"Error"})
+    }
 }
 
 //token generating function
@@ -20,7 +35,7 @@ const userRegister = async (req,res)=>{
         if(!validator.isEmail(email)){
             res.json({success:false,message:"User email already exists!"})
         }
-        if(!password.length<8){
+        if(password.length<8){
             res.json({success:false,message:"Enter a strong password!"})
         }
 

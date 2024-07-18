@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsCart } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import './css/Navbar.css';
 import { Button } from '@mui/material';
+import { StoreContext } from '../context/StoreContext';
 
 export default function Navbar({ setShowLogin, showLogin }) {
+  const {token, settoken} = useContext(StoreContext)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light container">
@@ -27,7 +29,10 @@ export default function Navbar({ setShowLogin, showLogin }) {
           </ul>
           <div className="post-comp">
             <Link className='px-4 cart-icon' to='/cart'><BsCart /></Link>
-            <Button variant="outlined" color='warning' onClick={() => setShowLogin(!showLogin)}>SignUp</Button> {/* Corrected onClick */}
+            {!token?
+              <Button variant="outlined" color='warning' onClick={() => setShowLogin(!showLogin)}>SignUp</Button>:
+              <div>hi</div>
+            }
           </div>
         </div>
       </nav>
