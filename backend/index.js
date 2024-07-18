@@ -3,6 +3,7 @@ import cors from 'cors'
 import { connection } from './config/db.js'
 import { foodRouter } from './routes/FoodRoute.js'
 import userRouter from './routes/UserRoute.js'
+import 'dotenv/config'
 const app = express()
 const port = 8080
 
