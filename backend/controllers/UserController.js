@@ -16,7 +16,7 @@ const userLogin = async (req,res)=>{
             res.json({success:false, message:"Invalid Password"})
         }
         const token = createToken(user._id)
-        res.json({success:true, message:"Login Success"})
+        res.json({success:true, token})
     }catch(error){
         console.log(error);
         res.json({success:false, message:"Error"})

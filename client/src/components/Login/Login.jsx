@@ -25,7 +25,6 @@ const Login = ({ showLogin, setShowLogin }) => {
 
   const handleSubmit = async (event) =>{
     event.preventDefault()
-    console.log(data);
     let newUrl = url
     if(currentState=='Sign Up'){
       newUrl+='/api/user/register'

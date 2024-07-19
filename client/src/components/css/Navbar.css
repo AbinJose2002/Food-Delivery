@@ -15,3 +15,43 @@
     align-items: center;
     cursor: pointer;
 }
+
+.post-comp-logged {
+    position: relative;
+}
+
+.navbar-dropdown {
+    padding: 1em;
+    right:0;
+    background-color: rgb(255, 243, 236);
+    position: absolute;
+    display: none;
+    border-radius: 20px;
+    border: 2px solid tomato;
+}
+
+.navbar-dropdown ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-dropdown li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-comp-logged:hover .navbar-dropdown {
+    display: flex;
+    z-index: 1;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+.dropdown-img{
+    margin-left:-30px
+}

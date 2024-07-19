@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { BsCart } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './css/Navbar.css';
 import { Button } from '@mui/material';
 import { StoreContext } from '../context/StoreContext';
+import { assets } from '../assets/frontendAssets/assets';
 
 export default function Navbar({ setShowLogin, showLogin }) {
+  const navigate = useNavigate();
   const {token, settoken} = useContext(StoreContext)
   return (
     <div>
@@ -21,7 +23,7 @@ export default function Navbar({ setShowLogin, showLogin }) {
               <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#menu">Menu</Link>
+              <Link className="nav-link" to="#menu" >Menu</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="#contact">Contact Us</Link>
@@ -29,9 +31,18 @@ export default function Navbar({ setShowLogin, showLogin }) {
           </ul>
           <div className="post-comp">
             <Link className='px-4 cart-icon' to='/cart'><BsCart /></Link>
-            {!token?
+            {!localStorage.getItem('token')?
               <Button variant="outlined" color='warning' onClick={() => setShowLogin(!showLogin)}>SignUp</Button>:
-              <div>hi</div>
+              <div className='post-comp-logged'>
+                <img src={assets.profile_icon} alt="" className='profile-icon'/>
+                <div className="navbar-dropdown">
+                  <ul>
+                    <li><img src={assets.bag_icon} alt="" className='dropdown-img'/><p className='pl-2'>Orders</p></li>
+                    <hr />
+                    <li onClick={()=>{localStorage.removeItem('token');navigate('/');settoken('')}}><img src={assets.logout_icon} alt="" className='dropdown-img' /><p className='pl-2'>Log Out</p></li>
+                  </ul>
+                </div>
+              </div>
             }
           </div>
         </div>
