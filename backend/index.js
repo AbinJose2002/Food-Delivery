@@ -4,6 +4,7 @@ import { connection } from './config/db.js'
 import { foodRouter } from './routes/FoodRoute.js'
 import userRouter from './routes/UserRoute.js'
 import 'dotenv/config'
+import CartRoute from './routes/CartRoute.js'
 const app = express()
 const port = 8080
 
@@ -19,6 +20,9 @@ app.use('/api/food',foodRouter)
 
 //api endpoint for user router
 app.use('/api/user',userRouter)
+
+//api endpoint for cart router
+app.use('/api/cart',CartRoute)
 
 //api endpoint to set the static folder uploads at images followed by the image name
 app.use('/images',express.static('uploads'))
