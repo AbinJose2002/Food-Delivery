@@ -12,7 +12,7 @@ import { assets } from '../../assets/frontendAssets/assets';
 import { useNavigate } from 'react-router-dom';
 
 const CartBody = () => {
-    const { food_list, cartItems, removeItem, addItem, getTotalCartAmount } = useContext(StoreContext)
+    const { foodList, cartItems, removeItem, addItem, getTotalCartAmount, url } = useContext(StoreContext)
     const navigate = useNavigate()
     
     return (
@@ -33,11 +33,11 @@ const CartBody = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {food_list.map((item, index) => {
+                                {foodList.map((item, index) => {
                                     if (cartItems[item._id] > 0) {
                                         return (
                                             <TableRow key={item._id}>
-                                                <TableCell align="center"><img className='item-img' src={item.image} alt="" /></TableCell>
+                                                <TableCell align="center"><img className='item-img' src={url+'/images/'+item.image} alt="" /></TableCell>
                                                 <TableCell align="center">{item.name}</TableCell>
                                                 <TableCell align="center">{item.price}</TableCell>
                                                 <TableCell align="center">{cartItems[item._id]}</TableCell>
