@@ -29,7 +29,7 @@ function App() {
       {showLogin && <Login setShowLogin={setShowLogin} showLogin={showLogin} />} {/* Conditional rendering of Login component */}
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart setShowLogin={setShowLogin} showLogin={showLogin} />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
       </Routes>
     </Router>
