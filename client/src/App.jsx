@@ -8,7 +8,9 @@ import Footer from "./components/Footer";
 import Cart from './components/cart/Cart';
 import Login from './components/Login/Login';
 import PlaceOrder from './components/placeorder/PlaceOrder'
+import Verify from './components/verify/Verify'
 import './App.css';
+import MyOrders from "./components/myorders/MyOrders";
 
 function App() {
   const [category, setCategory] = useState('All');
@@ -31,6 +33,8 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/cart" element={<Cart setShowLogin={setShowLogin} showLogin={showLogin} />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
+        <Route path="/verify" element={<Verify/>} />
+        <Route path="/myorders" element={<MyOrders/>} />
       </Routes>
     </Router>
   );
