@@ -42,22 +42,25 @@ export default function MyOrders() {
         <div>Error: {error.message}</div>
       ) : (
         <div className='container col-10 mx-auto'>
-          <h1>Your Orders</h1>
+          <h1 className='my-4'>Your Orders</h1>
           {ordersData.length > 0 ? (
             <ul>
               {ordersData.map((order) => (
                 <div key={order._id} className='orderItem mt-3 col-12 d-flex justify-content-center align-items-center'>
                   <div className="col-1"><img src={assets.parcel_icon} alt="" /></div>
-                  <div className='px-2 py-2 col-9 orderDetails'>
-                    <div className="orderItems">
+                  <div className='px-2 py-2 col-9 orderDetails d-flex'>
+                    <div className="orderItems col-5 d-flex">
                       {order.items.map((item)=>{
-                        if(item.length === 1){
-                          <p>hi</p>
+                        if(order.items.length === 1){
+                          return <span>{item.name} x {item.quantity}</span>
                         }else{
-                          <p>not working</p>
+                          return <>{item.name} x {item.quantity}, </>
                         }
                       })}
                     </div>
+                    <div className="price col-2">$ {order.amount}</div>
+                    <div className="quantity col-2">$ Items: {order.items.length}</div>
+                    <div className="status col-3 d-flex align-items-center justify-content-center"><div className="dot dot.color"></div>{order.status}</div>
                   </div>
                   <div className="col-2"><button className='btn-tomato'>Track Order</button></div>
                 </div>
