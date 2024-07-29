@@ -11,11 +11,15 @@ const Verify = () => {
   const [searchParams] = useSearchParams();
 
   const verifyPayment = async () => {
+    console.log("inside");
     const success = searchParams.get('success');
     const orderId = searchParams.get('orderId');
 
     if (success === 'true') {
+
       try {
+        console.log("inside");
+        
         const response = await axios.post(`${url}/api/order/verify`, { success, orderId });
         if (response.data.success) {
           navigate('/myorders');
