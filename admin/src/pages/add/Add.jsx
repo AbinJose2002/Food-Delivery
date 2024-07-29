@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Add = () => {
-  let url = 'http://localhost:8080'
+  let url = 'https://food-delivery-3fc4.onrender.com'
   const [image, setimage] = useState(false)
   const [data, setdata] = useState({
     name: '',
