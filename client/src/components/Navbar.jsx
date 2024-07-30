@@ -37,9 +37,9 @@ export default function Navbar({ setShowLogin, showLogin }) {
                 <img src={assets.profile_icon} alt="" className='profile-icon'/>
                 <div className="navbar-dropdown">
                   <ul>
-                    <li><img src={assets.bag_icon} alt="" className='dropdown-img'/><p className='pl-2'>Orders</p></li>
+                    <li onClick={()=>{navigate('/myorders')}} className='dropdown-img-container'><img src={assets.bag_icon} alt="" className='dropdown-img'/><p className='pl-2'>Orders</p></li>
                     <hr />
-                    <li onClick={()=>{localStorage.removeItem('token');navigate('/');settoken('')}}><img src={assets.logout_icon} alt="" className='dropdown-img' /><p className='pl-2'>Log Out</p></li>
+                    <li onClick={()=>{localStorage.removeItem('token');navigate('/');settoken('')}} className='dropdown-img-container'><img src={assets.logout_icon} alt="" className='dropdown-img' /><p className='pl-2'>Log Out</p></li>
                   </ul>
                 </div>
               </div>

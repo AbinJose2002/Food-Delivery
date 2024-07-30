@@ -60,7 +60,7 @@ export default function MyOrders() {
                     </div>
                     <div className="price col-2">$ {order.amount}</div>
                     <div className="quantity col-2">$ Items: {order.items.length}</div>
-                    <div className="status col-3 d-flex align-items-center justify-content-center"><div className="dot dot.color"></div>{order.status}</div>
+                    <div className="status col-3 d-flex align-items-center justify-content-center">&#x25cf;{order.status}</div>
                   </div>
                   <div className="col-2"><button className='btn-tomato'>Track Order</button></div>
                 </div>

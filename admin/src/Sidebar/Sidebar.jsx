@@ -8,16 +8,16 @@ const Sidebar = () => {
     <div className='col-2 sidebar'>
         <div className="sidebar-options d-flex flex-column py-4 px-4">
             <Link to='/add' className="sidebar-option d-flex py-3">
-                <img src={assets.add_icon} className='px-2' alt="" />
-                <p>Add Item</p>
+                <img src={assets.add_icon} alt="" />
+                <p className='px-2'>Add Item</p>
             </Link>
             <Link to='/list' className="sidebar-option d-flex py-3">
-                <img src={assets.order_icon} className='px-2' alt="" />
-                <p>List Item</p>
+                <img src={assets.order_icon}  alt="" />
+                <p className='px-2'>List Item</p>
             </Link>
             <Link to='order' className="sidebar-option d-flex py-3">
-                <img src={assets.order_icon} className='px-2' alt="" />
-                <p>Orders</p>
+                <img src={assets.order_icon} alt="" />
+                <p className='px-2'>Orders</p>
             </Link>
         </div>
     </div>

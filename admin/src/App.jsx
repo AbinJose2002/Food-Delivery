@@ -14,7 +14,7 @@ function App() {
     <>
     <ToastContainer />
       <Navbar />
-      <div className="col-12 row container">
+      <div className="col-12 row container mx-auto">
       <Sidebar />
       <Routes>
         <Route path='/add' element={<Add/>} />

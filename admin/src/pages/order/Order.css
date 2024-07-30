@@ -1,0 +1,10 @@
+.order-container{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.status{
+    padding: .4em;
+    background-color: rgba(255, 99, 71, 0.068);
+    border: 1px solid tomato;
+}
