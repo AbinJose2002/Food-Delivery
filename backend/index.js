@@ -6,6 +6,10 @@ import userRouter from './routes/UserRoute.js'
 import 'dotenv/config'
 import CartRoute from './routes/CartRoute.js'
 import orderRoute from './routes/OrderRoute.js'
+import reservationRoute from './routes/ReservationRoute.js'
+import staffRoute from './routes/StaffRoute.js'
+import adminRoute from './routes/AdminRoute.js'
+import tableRoute from './routes/TableRoute.js'
 const app = express()
 const port = 8080
 
@@ -27,6 +31,18 @@ app.use('/api/cart',CartRoute)
 
 //api endpoint for order router
 app.use('/api/order',orderRoute)
+
+//api endpoint for reservation router
+app.use('/api/reservation', reservationRoute);
+
+//api endpoint for staff router
+app.use('/api/staff', staffRoute);
+
+//api endpoint for admin router
+app.use('/api/admin', adminRoute);
+
+//api endpoint for table router
+app.use('/api/tables', tableRoute);
 
 //api endpoint to set the static folder uploads at images followed by the image name
 app.use('/images',express.static('uploads'))

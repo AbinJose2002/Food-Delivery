@@ -1,19 +1,27 @@
 import jwt from "jsonwebtoken";
 
-const authMiddleware = async (req,res,next)=>{
-    const {token} = req.headers;
-    if(!token){
-        res.json({success:false,message:'Error in auth token'})
-
-    }
+const authMiddleware = async (req, res, next) => {
     try {
-        const decodeToken = jwt.verify(token,process.env.JWT_SECRET);
-        req.body.userId = decodeToken.id;
-        next();
-    } catch (error) {
-        console.log(error);
-        res.json({success:false,message:"Error!"})
-    }
-}
+        const token = req.headers.token;
+        
+        if (!token) {
+            return res.status(401).json({
+                success: false,
+                message: 'No authentication token provided'
+            });
+        }
 
-export default authMiddleware
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.body.userId = decoded.id;
+        next();
+        
+    } catch (error) {
+        console.error('Auth middleware error:', error);
+        return res.status(401).json({
+            success: false,
+            message: 'Invalid or expired token'
+        });
+    }
+};
+
+export default authMiddleware;

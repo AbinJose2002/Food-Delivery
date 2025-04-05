@@ -6,7 +6,7 @@ import './Order.css';
 import { assets } from '../../assets/assets.js';
 
 const Order = () => {
-  const url = 'https://food-delivery-3fc4.onrender.com';
+  const url = 'http://localhost:8080';
   const [order, setOrder] = useState([]);
 
   const fetchOrder = async () => {

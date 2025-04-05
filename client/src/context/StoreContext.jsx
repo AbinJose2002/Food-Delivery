@@ -7,7 +7,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [foodList, setFoodList] = useState([]);
     const [token, settoken] = useState(localStorage.getItem('token') || '');
-    const url = 'https://food-delivery-3fc4.onrender.com';
+    const url = 'http://localhost:8080';
 
     const addItem = async (itemId) => {
         const updatedCartItems = { ...cartItems, [itemId]: (cartItems[itemId] || 0) + 1 };

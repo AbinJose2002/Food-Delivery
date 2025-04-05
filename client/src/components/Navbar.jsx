@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { BsCart } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import './css/Navbar.css';
-import { Button } from '@mui/material';
+import { Button, Divider } from '@mui/material';  // Add Divider import
 import { StoreContext } from '../context/StoreContext';
 import { assets } from '../assets/frontendAssets/assets';
+import { FaCalendar } from 'react-icons/fa'; // Add this import
 
 export default function Navbar({ setShowLogin, showLogin }) {
   const navigate = useNavigate();
@@ -28,22 +29,54 @@ export default function Navbar({ setShowLogin, showLogin }) {
             <li className="nav-item">
               <Link className="nav-link" to="#contact">Contact Us</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/reservation">Reservation</Link>
+            </li>
           </ul>
           <div className="post-comp">
             <Link className='px-4 cart-icon' to='/cart'><BsCart /></Link>
-            {!localStorage.getItem('token')?
-              <Button variant="outlined" color='warning' onClick={() => setShowLogin(!showLogin)}>SignUp</Button>:
-              <div className='post-comp-logged'>
-                <img src={assets.profile_icon} alt="" className='profile-icon'/>
-                <div className="navbar-dropdown">
-                  <ul>
-                    <li onClick={()=>{navigate('/myorders')}} className='dropdown-img-container'><img src={assets.bag_icon} alt="" className='dropdown-img'/><p className='pl-2'>Orders</p></li>
-                    <hr />
-                    <li onClick={()=>{localStorage.removeItem('token');navigate('/');settoken('')}} className='dropdown-img-container'><img src={assets.logout_icon} alt="" className='dropdown-img' /><p className='pl-2'>Log Out</p></li>
-                  </ul>
+            <div className="auth-buttons">
+              {!localStorage.getItem('token') ? (
+                <>
+                  <Button 
+                    variant="outlined" 
+                    color='warning' 
+                    onClick={() => setShowLogin(!showLogin)}
+                    className="me-2"
+                  >
+                    SignUp
+                  </Button>
+                  {/* <Button 
+                    variant="outlined" 
+                    color='warning'
+                    onClick={() => navigate('/staff/register')}
+                    className="me-2"
+                  >
+                    Join as Staff
+                  </Button> */}
+                  <Button 
+                    variant="contained" 
+                    color='warning'
+                    onClick={() => navigate('/staff/login')}
+                  >
+                    Staff Login
+                  </Button>
+                </>
+              ) : (
+                <div className='post-comp-logged'>
+                  <img src={assets.profile_icon} alt="" className='profile-icon'/>
+                  <div className="navbar-dropdown">
+                    <ul>
+                      <li onClick={()=>{navigate('/myorders')}} className='dropdown-img-container'><img src={assets.bag_icon} alt="" className='dropdown-img'/><p className='pl-2'>Orders</p></li>
+                      <hr />
+                      <li onClick={()=>{navigate('/myreservations')}} className='dropdown-img-container'><FaCalendar className='dropdown-img'/><p className='pl-2'>My Reservations</p></li>
+                      <hr />
+                      <li onClick={()=>{localStorage.removeItem('token');navigate('/');settoken('')}} className='dropdown-img-container'><img src={assets.logout_icon} alt="" className='dropdown-img' /><p className='pl-2'>Log Out</p></li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            }
+              )}
+            </div>
           </div>
         </div>
       </nav>

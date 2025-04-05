@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const List = () => {
-  const url = 'https://food-delivery-3fc4.onrender.com'
+  const url = 'http://localhost:8080';
   const [list, setlist] = useState([])
   const fetchList = async () =>{
     const foodResponse = await axios.get(`${url}/api/food/list`)
