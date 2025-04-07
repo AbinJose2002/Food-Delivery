@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { StoreContext } from '../../../context/StoreContext';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import './FoodManagement.css'; // Add your CSS file for styling
 
 const FoodManagement = () => {
     const { url } = useContext(StoreContext);
@@ -35,12 +36,19 @@ const FoodManagement = () => {
         e.preventDefault();
         const formDataToSend = new FormData();
         for (const key in formData) {
-            formDataToSend.append(key, formData[key]);
+            if (formData[key] !== null) {
+                formDataToSend.append(key, formData[key]);
+            }
         }
 
         try {
             if (selectedFood) {
-                await axios.put(`${url}/api/food/${selectedFood._id}`, formDataToSend);
+                // Use PUT request with the proper endpoint
+                await axios.put(`${url}/api/food/${selectedFood._id}`, formDataToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    }
+                });
             } else {
                 await axios.post(`${url}/api/food/add`, formDataToSend);
             }
@@ -62,7 +70,7 @@ const FoodManagement = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this item?')) {
             try {
-                await axios.delete(`${url}/api/food/${id}`);
+                await axios.post(`${url}/api/food/delete`, { id });
                 fetchFoods();
             } catch (error) {
                 console.error('Error deleting food:', error);

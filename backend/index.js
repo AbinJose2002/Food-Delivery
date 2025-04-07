@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { connection } from './config/db.js'
-import { foodRouter } from './routes/FoodRoute.js'
+import { foodRoute } from './routes/FoodRoute.js'
 import userRouter from './routes/UserRoute.js'
 import 'dotenv/config'
 import CartRoute from './routes/CartRoute.js'
@@ -21,7 +21,7 @@ app.use(cors())
 connection()
 
 //api endpoint for food router
-app.use('/api/food',foodRouter)
+app.use('/api/food',foodRoute)
 
 //api endpoint for user router
 app.use('/api/user',userRouter)

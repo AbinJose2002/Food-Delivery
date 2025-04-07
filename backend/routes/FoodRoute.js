@@ -1,20 +1,26 @@
 import express from 'express'
-import { addFood, listFood, deleteFood } from '../controllers/FoodController.js'
+import { addFood, listFood, deleteFood, updateFood } from '../controllers/FoodController.js'
 import multer from 'multer'
+import authMiddleware from '../middleware/auth.js'
 
-const foodRouter = express.Router()
+const foodRoute = express.Router()
 
-//image storing, setting up multer
-const storage = multer.diskStorage({
-    destination: 'uploads',
-    filename: (req,file,cb)=>{
-        return cb(null, `${Date.now()}${file.originalname}`)
-    }
+const upload = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'uploads/')
+        },
+        filename: function (req, file, cb) {
+            const uniqueFilename = Date.now() + '-' + Math.round(Math.random() * 1e9) + '-' + file.originalname;
+            cb(null, uniqueFilename)
+        }
+    })
 })
 
-const upload = multer({storage: storage})
+foodRoute.get('/list', listFood)
+foodRoute.post('/add', upload.single('image'), addFood)
+foodRoute.post('/delete', deleteFood)
+// Add the new PUT endpoint for updating food items
+foodRoute.put('/:id', upload.single('image'), updateFood)
 
-foodRouter.post('/add',upload.single('image'),addFood)
-foodRouter.post('/delete',deleteFood)
-foodRouter.get('/list',listFood)
-export  {foodRouter}
+export { foodRoute }
